@@ -66,6 +66,7 @@
         <div class="col-12 col-lg-12 m-auto">
           <form class="multisteps-form__form" method="POST" enctype="multipart/form-data" action="ajoute"  >
             <!--single form panel-->
+            @method('POST')
             @csrf
             <div class="multisteps-form__panel shadow p-4 rounded bg-white js-active" data-animation="slideHorz">
               <h5 class="multisteps-form__title">Compléter formulaire d'inscription et le reçu que vous trouverez dans la dernière étape de la pré-inscription</h5>
@@ -73,7 +74,7 @@
                 <div class="form-row mt-4">
                   <div class="col-12 col-sm-6">
                     <label for="form-label">Nom :*</label>
-                    <input class="multisteps-form__input form-control"  name="nom" type="text" placeholder="entre votre nom"/>
+                    <input class="multisteps-form__input form-control" value=""  name="nom"  type="text" placeholder="entre votre nom"/>
                   </div>
                   <div class="col-12 col-sm-6 mt-4 mt-sm-0">
                     <label for="form-label">Prenom :*</label>

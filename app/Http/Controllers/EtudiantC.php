@@ -5,6 +5,8 @@ use Maatwebsite\Excel\Facades\Excel;
 
 use Illuminate\Http\Request;
 use App\Models\Etudiant;
+use Illuminate\Support\Facades\DB;
+use Nette\Utils\Strings;
 
 class EtudiantC extends Controller
 {
@@ -12,7 +14,8 @@ class EtudiantC extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {$etudiants = Etudiant::simplePaginate(3);
+    {
+        $etudiants = Etudiant::simplePaginate(3);
         return view('admin.index', compact('etudiants'));
 
 
@@ -102,7 +105,7 @@ class EtudiantC extends Controller
             $etudiant->date_naissance = $request->date_naissance;
             $etudiant->lieu_naissance = $request->lieu_naissance;
             $etudiant->lieu_naissance_ar = $request->lieu_naissance_ar;
-            $etudiant->provance_naissance = $request->provance_naissance;
+            $etudiant->province_naissance = $request->provance_naissance;
             $etudiant->sexe = $request->sexe;
             $etudiant->nationnalite = $request->nationnalite;
             $etudiant->situation_familiale = $request->situation_familiale;
@@ -123,8 +126,11 @@ class EtudiantC extends Controller
             $etudiant->relvi_note = $pathRelviNote;
             
             // Store photo
-            $pathPhoto = $request->file('photo')->store('public');
-            $etudiant->photo = $pathPhoto;
+            if ($request->hasFile('photo')) {
+                // Store photo
+                $pathPhoto = $request->file('photo')->store('public');
+                $etudiant->photo = $pathPhoto;
+            }
             
             // Set other attributes
             $etudiant->a_obtention_bac = $request->a_obtention_bac;
@@ -154,6 +160,7 @@ class EtudiantC extends Controller
             $etudiant->culturelles_ecriture = $request->culturelles_ecriture;
             
             $etudiant->save();
+            return redirect('/admin');
             
 
     }
@@ -161,10 +168,16 @@ class EtudiantC extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show( )
     {
-        //
+    
+        return view('formulaire1');
+       
     }
+      
+    
+    
+    
 
     /**
      * Show the form for editing the specified resource.

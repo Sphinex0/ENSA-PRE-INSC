@@ -49,17 +49,18 @@ border-radius: 14px;
                         <h6 style="color:#a16d54;" class="text-left">Vous n'avez pas encore créé un compte :
                         </h6>
                         <div class="d-flex align-items-center justify-content-center ">
-                            <form  action="" class="w-50">
-                            
+                            <form action="{{url('formulaire')}}" class="w-50" >
+                                
+                            @csrf
                                 <div class="form-group d-flex  justify-content-arround">
                                    <img src="/images/account-avatar-man-svgrepo-com.svg" style="width: 2rem;" alt="">
-                                  <input class="form-control  rounded-3" id="user_username" type="text"placeholder="CNE ou Code massar" maxlength="10">
+                                  <input class="form-control  rounded-3" id="user_username"  value="{{ old('cin_et') }}" name="cin_et" type="text"placeholder="CNE ou Code massar" maxlength="10">
                                 </div>
                                 <div class="form-group d-flex  justify-content-between">
                                     
                                     <img src="/images/date-range-svgrepo-com.svg" style="width: 2rem;" alt="">
                                   
-                                  <input class="form-control  rounded-3"  size="30" type="date" placeholder="Date de naissance">
+                                  <input class="form-control  rounded-3" name="date_naissance"  size="30" type="date" placeholder="Date de naissance">
                                 </div>
                                 <div class="form-group d-flex  justify-content-between">
                                     

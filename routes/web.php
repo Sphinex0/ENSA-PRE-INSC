@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\EtudiantC;
 use Illuminate\Support\Facades\Route;
 
@@ -14,13 +15,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+
+Route::get('/',function (){
     return view('accueil');
 });
+
+// Other routes...
 
 
 Route::get('/admin', [EtudiantC::class,'index']);
 Route::get('/form', [EtudiantC::class,'create']);
+Route::get('/formulaire/{cin?}', [EtudiantC::class, 'show']);
+
 Route::post('/ajoute', [EtudiantC::class, 'store'])->name('ajoute');
 
 Route::get('/export-etudiants-excel', [EtudiantC::class, 'exportEtudiantsToExcel'])->name('export.etudiants.excel');

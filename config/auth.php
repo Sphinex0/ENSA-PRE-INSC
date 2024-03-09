@@ -35,12 +35,7 @@ return [
     |
     */
 
-    'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-    ],
+ 
 
     /*
     |--------------------------------------------------------------------------
@@ -59,18 +54,29 @@ return [
     |
     */
 
+    'guards' => [
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+    
+        'etudiants' => [ // Define the 'etudiants' guard
+            'driver' => 'session',
+            'provider' => 'etudiants', // Specify the provider for the 'etudiants' guard
+        ],
+    ],
+    
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
+    
+        'etudiants' => [ // Define the 'etudiants' provider
+            'driver' => 'eloquent',
+            'model' => App\Models\Etudiant::class, // Specify the model for the 'etudiants' provider
+        ],
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Resetting Passwords

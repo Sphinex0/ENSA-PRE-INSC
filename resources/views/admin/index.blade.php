@@ -11,7 +11,6 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     
-    <script src="/js/script.js"></script>
 </head>
 
 <body>
@@ -22,7 +21,7 @@
                     <i class="lni lni-grid-alt"></i>
                 </button>
                 <div class="sidebar-logo">
-                    <img src="logo2.png" width="100%" alt="">
+                    <img src="/images/logo2.png" width="100%" alt="">
                 </div>
             </div>
             <ul class="sidebar-nav">
@@ -64,7 +63,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="logo1.png" class=" img-fluid" alt="">
+                                <img src="/images/logo1.png" class=" img-fluid" alt="">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded">
 
@@ -153,8 +152,8 @@
                                                 {{ $etudiants->links() }}
                                            
                                     </div>
-                                </div
-                        </div>
+                                </div>
+                        
                     </div>
                 </div>
             </main>
@@ -172,6 +171,7 @@
         </div>
     </div>
     
+    <script src="/js/scripts.js"></script>
 </body>
 
 </html>
